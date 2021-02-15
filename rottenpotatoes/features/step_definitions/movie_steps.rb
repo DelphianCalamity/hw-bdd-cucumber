@@ -66,5 +66,7 @@ end
 
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
-  expect(num_rows).to eq 10
+#   expect(num_rows).to eq 10
+  rows = page.all('table#movies tbody tr').length
+  expect(rows).to eq Movie.count
 end
